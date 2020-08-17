@@ -1,0 +1,39 @@
+`major.minor.micro`
+
+major   - for backward-incompatible changes
+minor   - add features that are also backward compatible
+micro   - adds backward-compatible bug fixes
+
+
+hello-world
+    hello-world
+        __init__.py
+        main.py
+
+
+`setuptools` is a requirement to produce a native Python package. It is a collection of
+tools and helpers to create and distribute Python packages.
+
+`setuptools`    - A set of utilities for packaging
+`twine`         - A tool for registering and uploading packages
+
+$ pip install setuptools twine
+
+$ pip list --format=json
+
+
+To produce the native Python package, we have to add a few files.
+setup.py
+
+hello-world
+    hello-world
+        __init__.py
+        main.py
+    setup.py
+    README
+
+
+$ python setup.py sdist
+
+$ pip install dist/hello-world-0.0.1.tar.gz
+

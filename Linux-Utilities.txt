@@ -1,0 +1,47 @@
+
+
+$ sudo apt install sysstat -y
+
+# To get IOPS, use `iostat`
+
+$ iostat 1                      # with interval of one second
+$ iostat -d /dev/sdc 1          # -d to specify the device
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.11    0.00    0.08    0.00    0.00   99.81
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_dscd/s    kB_read    kB_wrtn    kB_dscd
+sda               0.03         0.00        15.88         0.00        165    4195292          0
+sdb               0.24         1.62        10.77         4.12     428269    2844168    1089336
+
+`tps` - transactions per second
+
+$ while true; do clear && iostat -d /dev/sda && sleep 1; done
+
+
+
+$ sudo apt install -y fio
+
+`fio` is a most commonly used tool for performance testing.
+It can help clarify the performance behavior of a device in a read-heavy or write-heavy
+environment (and even adjust the percentages of reads versus writes).
+
+$ fdisk -l /dev/sda
+$ lsblk
+
+
+
+Benchmarking HTTP with Apache Benchmark (ab)
+
+# 100 requests at a time, for a total of 10000 requests. 
+$ ab -c 100 -n 10000 http://localhost:8080/
+
+
+alias pg='ps aux | grep -v grep | grep $1'
+
+pg vim
+
+
+
+$ strace python follow.py
+
